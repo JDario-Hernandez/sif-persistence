@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: persistence
+  datasource:
+    url: "jdbc:mysql://66.179.94.181:3306/sif_mipres?useSSL=false&serverTimezone=UTC"
+    username: "onteal"
+    password: "0nteal2000"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: false
+    properties:
+      hibernate.order_inserts: true
+
+  rabbitmq:
+    host: 66.179.94.181
+    port: 5672
+    username: onteal
+    password: 0nteal2000
+    queues:
+      names:
+        addressing-get: queue.addressing.bd.post
+        programming-get: queue.programming.bd.post
+#        deliveryreport-get: queue.delivery.bd.post
+server:
+  port: 8087
